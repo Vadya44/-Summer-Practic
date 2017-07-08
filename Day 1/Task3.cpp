@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 
     // Bubble sort O(n^2)
     for(int i = 0; i < N; i++) {
-        for(int j = 0; j < N - i; j++) {
+        for(int j = 0; j < N - i - 1; j++) {
             if(arr[j] > arr[j + 1]) {
                 int temp = arr[j];
                 arr[j] = arr[j + 1];
