@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
         cout << arr[i] << "; ";
     }
     for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N -1; j++)
+        for (int j = 0; j < N - i; j++)
         {
             if (arr[j] > arr[j+1])
             {
