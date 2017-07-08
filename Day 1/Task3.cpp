@@ -16,7 +16,9 @@ int main(int argc, char* argv[]) {
         {
             if (arr[j] > arr[j+1])
             {
-                swap(arr[j], arr[j+1]);
+                int buff = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = buff;
             }
         }
 
