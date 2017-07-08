@@ -1,3 +1,6 @@
+/*
+ * Написать бабл сорт для массива длины N(вводится с клавиатуры).
+ */
 #include <iostream>
 using namespace std;
 int main(int argc, char* argv[]) {
@@ -11,6 +14,7 @@ int main(int argc, char* argv[]) {
         arr[i] = rand() % 10;
         cout << arr[i] << "; ";
     }
+    // Bubble sort O(n^2)
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N - i; j++)
         {

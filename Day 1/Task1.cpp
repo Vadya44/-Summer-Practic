@@ -1,3 +1,8 @@
+/*
+ * Task 1
+ * Создать массив длинной N(вводится с клавиатуры).
+ * Выполнить сдвиг влево на k позиций(вводится с клавиатуры).
+ */
 #include <iostream>
 using namespace std;
 
@@ -14,6 +19,7 @@ int main(int argc, char* argv[]) {
         arr[i] = i + 1;
         cout << arr[i] << "; ";
     }
+    // Shifting array left for k positions
     for (int i = 0; i < k; i++) {
         {
             int temp = arr[0];
