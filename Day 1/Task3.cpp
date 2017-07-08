@@ -4,8 +4,8 @@
 #include <iostream>
 using namespace std;
 
-const int INFINITI = 1e9;
-int arr[INFINITI];
+const int INF = 1e9;
+int arr[INF];
 
 int main(int argc, char* argv[])
 {
