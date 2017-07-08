@@ -7,6 +7,19 @@
 
 using namespace std;
 
+/**
+ * Reverse the order of the elements at indices [begin; end] in the array
+ * @param arr The array whose elements are to be reversed
+ * @param begin Start index (inclusive) of the interval to be reversed
+ * @param end End index (inclusive) of the interval to be reversed
+ */
+void reverse_array(int* arr, int begin, int end)
+{
+    for(int i = 0; i < (end - begin + 1) / 2; i++) {
+        swap(arr[begin + i], arr[end - i]);
+    }
+}
+
 int main(int argc, char* argv[])
 {
     int N, k;
@@ -26,18 +39,14 @@ int main(int argc, char* argv[])
         cout << arr[i] << "; ";
     }
 
-    // Shifting array left for k positions
-    for(int i = 0; i < k; i++) {
-        {
-            int temp = arr[0];
+    k %= N;
 
-            for(int j = 0; j < N - 1; j++) {
-                arr[j] = arr[j + 1];
-            }
-
-            arr[N - 1] = temp;
-        }
-    }
+    /*
+     * Shift array to the left by k positions in O(n) time
+     */
+    reverse_array(arr, 0, k - 1);
+    reverse_array(arr, k, N - 1);
+    reverse_array(arr, 0, N - 1);
 
     cout << endl << "Array after shifting is:" << endl;
 
