@@ -1,5 +1,6 @@
-# -Summer-Practice
-## This repository is bank of C++ projects from summer practice HSE CS.
+# Summer-Practice
+# This repository is bank of C++ projects from summer practice HSE CS.
+## Алгоритмы и структуры данных на втором курсе
 ### В первом семестре второго курса будет вести лектор Дягетерев - основы C++.
 ### Во втором семестре Ульянов.
 
@@ -11,7 +12,8 @@
 
 
 ## В папке presentations хранятся презентации с лекций.
-
+________________________________________
+## В папках Day * будут храниться решенные задания
 
 1. Day 1:
 3 задачки на дом. - Лежат в папке презентаций.
