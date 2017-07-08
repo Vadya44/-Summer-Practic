@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
     cout << "Enter N: ";
     cin >> N;
 
-    int arr[N];
+    int* arr = new int[N];
 
     cout << "Array is:" << endl;
 
@@ -44,6 +44,8 @@ int main(int argc, char* argv[])
     for(int i = 0; i < N; i++) {
         cout << arr[i] << "; ";
     }
+
+    delete[] arr;
 
     return 0;
 }
