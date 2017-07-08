@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
 {
     int N;
 
-    cout << "Input N:" << endl;
+    cout << "Enter N:" << endl;
     cin >> N;
 
     int arr[N];
