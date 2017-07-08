@@ -3,8 +3,10 @@
  * Переместить все нули в конце массива.
  */
 #include <iostream>
-
 using namespace std;
+
+const int INFINITI = 1e9;
+int arr[INFINITI];
 
 int main(int argc, char* argv[])
 {
@@ -12,8 +14,6 @@ int main(int argc, char* argv[])
 
     cout << "Enter N:" << endl;
     cin >> N;
-
-    int arr[N];
 
     cout << "Array is:" << endl;
 

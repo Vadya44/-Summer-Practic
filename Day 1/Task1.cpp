@@ -4,8 +4,10 @@
  * Выполнить сдвиг влево на k позиций(вводится с клавиатуры).
  */
 #include <iostream>
-
 using namespace std;
+
+const int INFINITI = 1e9;
+int arr[INFINITI];
 
 int main(int argc, char* argv[])
 {
@@ -16,8 +18,6 @@ int main(int argc, char* argv[])
 
     cout << "Enter k:" << endl;
     cin >> k;
-
-    int arr[N];
 
     cout << "Array is:" << endl;
 
