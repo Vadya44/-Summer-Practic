@@ -11,15 +11,15 @@ int main(int argc, char* argv[])
 {
     int N, k;
 
-    cout << "Input N:" << "\n";
+    cout << "Input N:" << endl;
     cin >> N;
 
-    cout << "Input k:" << "\n";
+    cout << "Input k:" << endl;
     cin >> k;
 
     int arr[N];
 
-    cout << "Array is:" << "\n";
+    cout << "Array is:" << endl;
 
     for(int i = 0; i < N; i++) {
         arr[i] = i + 1;
@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
         }
     }
 
-    cout << "\n" << "Array after shifting is:" << "\n";
+    cout << endl << "Array after shifting is:" << endl;
 
     for(int i = 0; i < N; i++) {
         cout << arr[i] << "; ";
