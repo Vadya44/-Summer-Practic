@@ -4,15 +4,14 @@
 #include <iostream>
 using namespace std;
 
-const int INF = 1e9;
-int arr[INF];
-
 int main(int argc, char* argv[])
 {
     int N;
 
     cout << "Enter N:" << endl;
     cin >> N;
+
+	int* arr = new int[N];
 
     cout << "Array is:" << endl;
 
@@ -37,6 +36,8 @@ int main(int argc, char* argv[])
     for(int i = 0; i < N; i++) {
         cout << arr[i] << "; ";
     }
+
+     delete[] arr;
 
     return 0;
 }
