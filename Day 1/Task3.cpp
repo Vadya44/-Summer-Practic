@@ -11,18 +11,15 @@ int main(int argc, char* argv[]) {
         arr[i] = rand() % 10;
         cout << arr[i] << "; ";
     }
-    int position = N - 1;
-    for (int i = 0; i < position; i++) {
-        if (arr[i] == 0) {
-            if (arr[position] != 0) {
-                arr[i] = arr[position];
-                arr[position--] = 0;
-            } else if(arr[position] == 0) {
-                while (arr[--position] == 0) {}
-                arr[i] = arr[position];
-                arr[position--] = 0;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N -1; j++)
+        {
+            if (arr[j] > arr[j+1])
+            {
+                swap(arr[j], arr[j+1]);
             }
         }
+
     }
     cout << "\n" << "Array after compression is:" << "\n";
     for (int i = 0; i < N; i++)
