@@ -10,10 +10,10 @@ int main(int argc, char* argv[])
 {
     int N;
 
-    cout << "Enter N:" << endl;
+    cout << "Enter N: ";
     cin >> N;
 
-    int arr[N];
+    int* arr = new int[N];
 
     cout << "Array is:" << endl;
 
@@ -22,20 +22,18 @@ int main(int argc, char* argv[])
         cout << arr[i] << "; ";
     }
 
-    int position = N - 1;
+    int last_zero = N;
 
-    // Перемещаем в конец массива все нули
-    for(int i = 0; i < position; i++) {
+    while(arr[last_zero-- - 1] == 0) { }
+
+    /*
+     * Инвариант:
+     * * в интервале (last_zero; N) только нули
+     * * в интервале [0; i] (в конце итерации цикла) нет нулей
+     */
+    for(int i = 0; i < last_zero; i++) {
         if(arr[i] == 0) {
-            if(arr[position] != 0) {  //Случай, когда элемент в конце не 0
-                arr[i] = arr[position];
-                arr[position--] = 0;
-            }
-            else if(arr[position] == 0) {  // Случай, когда элемент в конце равен нулю, поэтому перемещаемся
-                while(arr[--position] == 0) { }  // к близжайшему от конца элементу, который не равен нулю.
-                arr[i] = arr[position];
-                arr[position--] = 0;
-            }
+            swap(arr[i], arr[last_zero--]);
         }
     }
 
@@ -44,6 +42,8 @@ int main(int argc, char* argv[])
     for(int i = 0; i < N; i++) {
         cout << arr[i] << "; ";
     }
+
+    delete[] arr;
 
     return 0;
 }
