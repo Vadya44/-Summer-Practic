@@ -30,9 +30,8 @@ int main(int argc, char* argv[])
                 arr[j + 1] = buff;
             }
         }
-
-
     }
+
     cout << endl << "Array after compression is:" << endl;
 
     for(int i = 0; i < N; i++) {
