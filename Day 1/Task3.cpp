@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
     cout << "Enter N:" << endl;
     cin >> N;
 
-	int* arr = new int[N];
+	int *arr = new int[N];
 
     cout << "Array is:" << endl;
 
