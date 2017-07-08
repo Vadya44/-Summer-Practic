@@ -10,12 +10,12 @@ int main(int argc, char* argv[])
 {
     int N;
 
-    cout << "Input N:" << "\n";
+    cout << "Input N:" << endl;
     cin >> N;
 
     int arr[N];
 
-    cout << "Array is:" << "\n";
+    cout << "Array is:" << endl;
 
     for(int i = 0; i < N; i++) {
         arr[i] = rand() % 10;
@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
         }
     }
 
-    cout << "\n" << "Array after compression is:" << "\n";
+    cout << endl << "Array after compression is:" << endl;
 
     for(int i = 0; i < N; i++) {
         cout << arr[i] << "; ";
