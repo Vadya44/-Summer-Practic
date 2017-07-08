@@ -25,9 +25,9 @@ int main(int argc, char* argv[])
     for(int i = 0; i < N; i++) {
         for(int j = 0; j < N - i; j++) {
             if(arr[j] > arr[j + 1]) {
-                int buff = arr[j];
+                int temp = arr[j];
                 arr[j] = arr[j + 1];
-                arr[j + 1] = buff;
+                arr[j + 1] = temp;
             }
         }
     }
