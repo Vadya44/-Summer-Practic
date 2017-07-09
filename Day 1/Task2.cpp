@@ -5,15 +5,14 @@
 #include <iostream>
 using namespace std;
 
-const int INFINITI = 1e9;
-int arr[INFINITI];
-
 int main(int argc, char* argv[])
 {
     int N;
 
     cout << "Enter N:" << endl;
     cin >> N;
+
+    int *arr = new int[N];
 
     cout << "Array is:" << endl;
 
