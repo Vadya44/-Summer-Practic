@@ -136,12 +136,19 @@ void bubbleSortArrayIverson2(int *arr, int begin, int end)
     cout << "Count of Swaps : " << countOfSwaps << endl << endl;
 }
 
+/*
+ * Печать массива
+ */
 void printArray(int  *array, int N) {
     for (int i = 0; i < N; i++) {
         cout << array[i] << " ";
     }
 }
 
+/*
+ * Для того, чтоы мы могли объективно сравнивать количество циклов и свапов, будем юзать
+ * одинаковые входные массивы.
+ */
 void generateArray(int *arr, int min, int max, int N){
     srand(time(0));
 

@@ -6,10 +6,10 @@
 #include <iostream>
 using namespace std;
 
+// Прототипы
 void insertionSort(int *arr, int n);
 
 void binaryInsertionSort(int *arr, int n);
-
 
 void generateArray(int *arr, int min, int max, int N);
 
@@ -35,6 +35,9 @@ int main(int argc, char* argv[])
     printArray(arr, N);
     insertionSort(arr, N);
 
+    /*
+     * Генерируем такой же массив
+     */
     generateArray(arr, min,max, N);
     cout << "Array is:" << endl;
     printArray(arr, N);
@@ -45,6 +48,9 @@ int main(int argc, char* argv[])
     return 0;
 }
 
+/*
+ * Сортировка вставками
+ */
 void insertionSort(int *array, int n)
 {
     int countOfOutterCycles = 0;
@@ -67,7 +73,9 @@ void insertionSort(int *array, int n)
     cout << "Count of Swaps : " << countOfSwaps << endl << endl;
 }
 
-
+/*
+ * Бинарная сортиврока вставками
+ */
 void binaryInsertionSort(int *array, int n)
 {
     int countOfOutterCycles = 0;
@@ -111,12 +119,19 @@ void binaryInsertionSort(int *array, int n)
     cout << "Count of Swaps : " << countOfSwaps << endl << endl;
 }
 
+/*
+ * Печать массива
+ */
 void printArray(int  *array, int N) {
     for (int i = 0; i < N; i++) {
         cout << array[i] << " ";
     }
 }
 
+/*
+ * Для того, чтоы мы могли объективно сравнивать количество циклов и свапов, будем юзать
+ * одинаковые входные массивы.
+ */
 void generateArray(int *arr, int min, int max, int N){
     srand(time(0));
 
