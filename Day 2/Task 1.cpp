@@ -31,17 +31,24 @@ int main(int argc, char* argv[])
     cout << "Enter max num for generate:" << endl;
     cin >> max;
 
+    /*
+    * Генерируем  массив
+    */
     int *arr = new int[N];
     generateArray(arr, min,max, N);
     cout << "Array is:" << endl;
     printArray(arr, N);
     bubbleSortArrayClassic(arr, 0, N);
-
+    /*
+     * Генерируем такой же массив
+     */
     generateArray(arr, min,max, N);
     cout << "Array is:" << endl;
     printArray(arr, N);
     bubbleSortArrayIverson1(arr, 0, N);
-
+    /*
+     * Генерируем такой же массив
+     */
     generateArray(arr, min,max, N);
     cout << "Array is:" << endl;
     printArray(arr, N);
@@ -51,7 +58,9 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-
+/*
+ * Стандартный бабл-сорт
+ */
 void bubbleSortArrayClassic(int *arr, int begin, int end)
 {
     int countOfOutterCycles = 0;
@@ -76,7 +85,9 @@ void bubbleSortArrayClassic(int *arr, int begin, int end)
     cout << "Count of Inner Cycles : " << countOfInnerCycles << endl;
     cout << "Count of Swaps : " << countOfSwaps << endl << endl;
 }
-
+/*
+ * Бабл сорт Айверсона 1
+ */
 void bubbleSortArrayIverson1(int *arr, int begin, int end)
 {
     int countOfOutterCycles = 0;
@@ -104,7 +115,9 @@ void bubbleSortArrayIverson1(int *arr, int begin, int end)
     cout << "Count of Inner Cycles : " << countOfInnerCycles << endl;
     cout << "Count of Swaps : " << countOfSwaps << endl << endl;
 }
-
+/*
+ * Бабл сорт Айверсона 2
+ */
 void bubbleSortArrayIverson2(int *arr, int begin, int end)
 {
     int countOfOutterCycles = 0;
