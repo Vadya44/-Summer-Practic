@@ -6,7 +6,7 @@
  */
 #include <iostream>
 using namespace std;
-
+// Прототипы
 void bubbleSortArrayClassic(int *arr, int begin, int end);
 
 void bubbleSortArrayIverson1(int *arr, int begin, int end);
