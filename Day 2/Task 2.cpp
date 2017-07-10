@@ -110,7 +110,6 @@ void binaryInsertionSort(int *array, int n)
             } else {
                 leftBound = rightBound;
             }
-            countOfSwaps++;
         }
 
         int temp = array[i];
@@ -118,6 +117,7 @@ void binaryInsertionSort(int *array, int n)
         for (int j = i; j > leftBound; j--)
         {
             array[j] = array[j - 1];
+            countOfSwaps++;
         }
 
         array[leftBound] = temp;
