@@ -13,14 +13,7 @@ using namespace std;
  * @param begin Start index (inclusive) of the interval to be reversed
  * @param end Start index (inclusive) of the interval to be reversed
  */
-void reserse_array(int* arr, int begin, int end)
-{
-    for(int i = 0; i < (end - begin + 1) / 2; i++) {
-        int temp = arr[begin + i];
-        arr[begin + i] = arr[end - i];
-        arr[end - i] = temp;
-    }
-}
+void reserse_array(int* arr, int begin, int end);
 
 int main(int argc, char* argv[])
 {
@@ -59,4 +52,12 @@ int main(int argc, char* argv[])
     delete[] arr;
 
     return 0;
+}
+void reserse_array(int* arr, int begin, int end)
+{
+    for(int i = 0; i < (end - begin + 1) / 2; i++) {
+        int temp = arr[begin + i];
+        arr[begin + i] = arr[end - i];
+        arr[end - i] = temp;
+    }
 }
