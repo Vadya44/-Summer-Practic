@@ -58,10 +58,12 @@ void insertionSort(int *array, int n)
 {
     int countOfOutterCycles = 0;
     int countOfSwaps = 0;
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i < n; i++)
+    {
         int j = i;
 
-        while (j > 0 && array[j] < array[j - 1]) {
+        while (j > 0 && array[j] < array[j - 1])
+        {
             int temp = array[j];
             array[j] = array[j - 1];
             array[j - 1] = temp;
@@ -88,17 +90,21 @@ void binaryInsertionSort(int *array, int n)
         int rightBound = i;
         int middle = (leftBound + rightBound) / 2;
 
-        while (leftBound != middle) {
-            if (array[middle] > array[i]) {
+        while (leftBound != middle)
+        {
+            if (array[middle] > array[i])
+            {
                 rightBound = middle - 1;
-            } else {
+            } else
+            {
                 leftBound = middle;
             }
 
             middle = (leftBound + rightBound) / 2;
         }
 
-        if (array[leftBound] < array[i]) {
+        if (array[leftBound] < array[i])
+        {
             if (array[i] > array[rightBound]) {
                 leftBound = rightBound + 1;
             } else {
@@ -109,7 +115,8 @@ void binaryInsertionSort(int *array, int n)
 
         int temp = array[i];
 
-        for (int j = i; j > leftBound; j--) {
+        for (int j = i; j > leftBound; j--)
+        {
             array[j] = array[j - 1];
         }
 
@@ -124,21 +131,25 @@ void binaryInsertionSort(int *array, int n)
 
 /*
  * Печать массива
+ *
  */
-void printArray(int  *array, int N) {
-    for (int i = 0; i < N; i++) {
+void printArray(int  *array, int N)
+{
+    for (int i = 0; i < N; i++)
+    {
         cout << array[i] << " ";
     }
 }
-
 /*
  * Для того, чтоы мы могли объективно сравнивать количество циклов и свапов, будем юзать
  * одинаковые входные массивы.
  */
-void generateArray(int *arr, int min, int max, int N){
+void generateArray(int *arr, int min, int max, int N)
+{
     srand(time(0));
 
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
+    {
         arr[i] = min + rand() % (max - min + 1);
     }
 }

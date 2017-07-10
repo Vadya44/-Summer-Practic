@@ -66,8 +66,10 @@ void bubbleSortArrayClassic(int *arr, int begin, int end)
     int countOfOutterCycles = 0;
     int countOfInnerCycles = 0;
     int countOfSwaps = 0;
-    for (int i = begin; i < end - 1; ++i) {
-        for (int j = begin; j < end - i - 1; ++j) {
+    for (int i = begin; i < end - 1; ++i)
+    {
+        for (int j = begin; j < end - i - 1; ++j)
+        {
             if (arr[j] > arr[j + 1])
             {
                 int buff = arr[j];
@@ -94,9 +96,11 @@ void bubbleSortArrayIverson1(int *arr, int begin, int end)
     int countOfInnerCycles = 0;
     int countOfSwaps = 0;
     bool flag = false;
-    for (int i = begin; i < end - 1 && !flag; ++i) {
+    for (int i = begin; i < end - 1 && !flag; ++i)
+    {
         flag = true;
-        for (int j = begin; j < end - i - 1; ++j) {
+        for (int j = begin; j < end - i - 1; ++j)
+        {
             if (arr[j] > arr[j + 1])
             {
                 int buff = arr[j];
@@ -126,11 +130,14 @@ void bubbleSortArrayIverson2(int *arr, int begin, int end)
     int bound = end - 1;
     int t = 0;
 
-    do {
+    do
+    {
         t = 0;
 
-        for (int i = 0; i < bound; i++) {
-            if (arr[i] > arr[i + 1]) {
+        for (int i = 0; i < bound; i++)
+        {
+            if (arr[i] > arr[i + 1])
+            {
                 int temp = arr[i];
                 arr[i] = arr[i + 1];
                 arr[i + 1] = temp;
@@ -152,8 +159,10 @@ void bubbleSortArrayIverson2(int *arr, int begin, int end)
 /*
  * Печать массива
  */
-void printArray(int  *array, int N) {
-    for (int i = 0; i < N; i++) {
+void printArray(int  *array, int N)
+{
+    for (int i = 0; i < N; i++)
+    {
         cout << array[i] << " ";
     }
 }
@@ -165,7 +174,8 @@ void printArray(int  *array, int N) {
 void generateArray(int *arr, int min, int max, int N){
     srand(time(0));
 
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
+    {
         arr[i] = min + rand() % (max - min + 1);
     }
 }
