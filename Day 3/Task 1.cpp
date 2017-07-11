@@ -110,7 +110,6 @@ void radixSort(int *array, int n, int base)
 {
 
     int exponent = 0;
-    int max = getMax(array, n);
     un *temp = new un[n];
 
     while (exponent < 4) {
