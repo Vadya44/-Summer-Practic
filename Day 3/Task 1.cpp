@@ -34,7 +34,7 @@ union un{
 int main()
 {
     ofstream oFile;
-    oFile.open("output.txt", ios::out); // может не сработать(сделать прямой путь)
+    oFile.open("/Users/Vadya/Desktop/C++taskLast/output.txt", ios::out);
     /*
      * Запись в файл исходного массива
      */
@@ -82,9 +82,11 @@ void countingSort(int *array, int n)
     int min = getMin(array, n);
     int max = getMax(array, n);
     int tempLegth = max - min + 1;
-    int *temp = new int[tempLegth];
+    int *temp = new int[tempLegth]; // вспомогающий массив
 
-    memset(temp, 0, tempLegth * sizeof(int));
+    for (int k = 0; k < n; ++k) {
+        temp[k] = 0;
+    }
 
     for (int i = 0; i < n; i++) {
         temp[array[i] - min]++;
@@ -109,16 +111,16 @@ void radixSort(int *array, int n, int base)
 
     int exponent = 0;
     int max = getMax(array, n);
-    un *temp = new un[n]();
+    un *temp = new un[n];
 
     while (exponent < 4) {
         for (int i = 0; i < n; i++) {
             temp[i].a = array[i]; // инициализация массива юнионов
         }
-        int *cnt = new int[base]();
+        int *cnt = new int[base];
 
         for (int i = 0; i < n; i++) {
-            cnt[(temp[i].ch[exponent]) % base]++;
+            cnt[temp[i].ch[exponent]]++;
         }
 
         int sum = 0, j;
@@ -130,7 +132,7 @@ void radixSort(int *array, int n, int base)
         }
 
         for (int i = 0; i < n; i++) {
-            int tempIndex = (temp[i].ch[exponent]) % base;
+            int tempIndex = temp[i].ch[exponent];
             array[cnt[tempIndex]] = temp[i].a;
             cnt[tempIndex]++;
         }
@@ -210,12 +212,13 @@ void cloneArray(int *inputArray, int *outputArray, int n)
 void openFile()
 {
     ifstream inFile;
-    inFile.open("input.txt", ios::in); // Может не сработать(лучше прямой путь)
+    inFile.open("/Users/Vadya/Desktop/C++taskLast/input.txt", ios::in);
     inFile >> n;
     arr = new int[n];
     for (int i = 0; i < n; ++i)
     {
         inFile >> arr[i];
+        arr[i] *= 11111111;
     }
     inFile.close();
 }
