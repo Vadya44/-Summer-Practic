@@ -114,7 +114,7 @@ void radixSort(int *array, int n, int base)
 
     while (exponent < 4) {
         for (int i = 0; i < n; i++) {
-            temp[i].a = array[i]; // инициализация массива юнионов
+            temp[i].a = (unsigned int)array[i]; // инициализация массива юнионов
         }
         int *cnt = new int[base];
 
