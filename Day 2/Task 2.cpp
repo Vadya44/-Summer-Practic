@@ -119,9 +119,9 @@ void binaryInsertionSort(int *array, int n)
             array[j] = array[j - 1];
             countOfSwaps++;
         }
-
         array[leftBound] = temp;
         countOfOutterCycles++;
+        countOfSwaps++;
     }
     cout << endl << "Array after binary insertion sort is:" << endl;
     printArray(array, n);
