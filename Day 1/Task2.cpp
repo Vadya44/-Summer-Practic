@@ -21,16 +21,25 @@ int main(int argc, char* argv[])
         cout << arr[i] << "; ";
     }
 
-    int position = N ;
+    // Число встреченных нулей
+    int zeroes_encountered = 0;
 
-    // Перемещаем в конец массива все нули
-    while(arr[--position] == 0) { }
-
-    for(int i = 0; i < position; i++) {
+    for(int i = 0; i < N; i++) {
         if(arr[i] == 0) {
-                arr[i] = arr[position];
-                arr[position--] = 0;
+            zeroes_encountered += 1;
         }
+        else if(zeroes_encountered) {
+            /*
+             * Меняем ненулевой элемент местами с первым по счету нулем
+             */
+            arr[i - zeroes_encountered] = arr[i];
+            arr[i] = 0;
+        }
+
+        /*
+         * На промежутке [0; i - zeroes_encountered] нет нулей;
+         * На промежутке (i - zeroes_encountered; i] только нули
+         */
     }
 
     cout << endl << "Array after compression is:" << endl;
