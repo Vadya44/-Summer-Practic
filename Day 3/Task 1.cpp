@@ -34,7 +34,7 @@ union un{
 int main()
 {
     ofstream oFile;
-    oFile.open("/Users/Vadya/Desktop/C++taskLast/output.txt", ios::out);
+    oFile.open("output.txt", ios::out);
     /*
      * Запись в файл исходного массива
      */
@@ -211,13 +211,12 @@ void cloneArray(int *inputArray, int *outputArray, int n)
 void openFile()
 {
     ifstream inFile;
-    inFile.open("/Users/Vadya/Desktop/C++taskLast/input.txt", ios::in);
+    inFile.open("input.txt", ios::in);
     inFile >> n;
     arr = new int[n];
     for (int i = 0; i < n; ++i)
     {
         inFile >> arr[i];
-        arr[i] *= 11111111;
     }
     inFile.close();
 }
