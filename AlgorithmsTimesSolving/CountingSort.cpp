@@ -6,29 +6,30 @@ int getMin(int *array, int n);
 int getMax(int *array, int n);
 void countingSort(int *array, int n)
 {
-    int min = getMin(array, n);
-    int max = getMax(array, n);
-    int tempLegth = max - min + 1;
-    int *temp = new int[tempLegth]; // вспомогающий массив
+    int max =getMax(array, n);
 
-    for (int k = 0; k < n; ++k) {
-        temp[k] = 0;
+    int *c = new int[max + 1];
+
+    for (int i = 0; i < max + 1; ++i)
+        c[i] = 0;
+
+    for (int i = 0; i < n; ++i)
+        c[array[i]]++;
+
+    for (int i = 1; i < max + 1; ++i)
+        c[i] += c[i - 1];
+
+    int* res = new int[n];
+    for (int i = n - 1; i >= 0; --i) {
+        res[c[array[i]] - 1] = array[i];
+        c[array[i]]--;
     }
 
-    for (int i = 0; i < n; i++) {
-        temp[array[i] - min]++;
-    }
+    for (int i = 0; i < n; ++i)
+        array[i] = res[i];
 
-    int j = 0;
-
-    for (int i = min; i <= max; i++) {
-        while (temp[i - min]) {
-            array[j++] = i;
-            temp[i - min]--;
-        }
-    }
-
-    delete [] temp;
+    delete[] c;
+    delete[] res;
 }
 /*
  * Взятие минимума из массива

@@ -1,1 +1,1 @@
-void radixSort(int *array, int length, int radix);
+void radixSort(int *array, int length);
