@@ -57,7 +57,7 @@ void testIt (void (*sorting)(int*, int), int arrayType) {
         if (arrayType == 2)
             generateRandomArray(originalArray, length, 0, INT_MAX);
         if (arrayType == 3) {
-            generateRandomArray(originalArray, length, 0, INT_MAX);
+            generateRandomArray(originalArray, length, 0, 100);
             bubbleSortArrayClassic(originalArray, length);
             reSort(originalArray, length);
         }
@@ -97,6 +97,7 @@ void testIt (void (*sorting)(int*, int), int arrayType) {
         CSVout << sortingName << endl << endl;
         for (int i = 1; i < 5; ++i)
         {
+            if (sorting == countingSort &&  i == 2 ) continue;
             CSVout << endl << "type is " << i << endl;
             out << "Now is array with ";
             if (i == 1)
