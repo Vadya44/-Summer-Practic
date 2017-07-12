@@ -16,20 +16,19 @@
 
 
 using namespace std;
-long long timeCount(void (*sorting)(int[], int), int *array, int length);
-void testIt(void (*sorting)(int[], int), int arrayType);
-
+long long timeCount(int (*sorting)(int*, int), int *array, int length);
+void testIt(int (*sorting)(int*, int), int arrayType);
+void test(string sortingName, int (*sorting)(int*, int));
 ofstream out("/Users/Vadya/Desktop/AlgorithmsTimesSolving/results.txt");
 
 
 int main() {
 
-    int i =
-    return 0;
+    test("Bubble sort", bubbleSortArrayClassic);
 }
 
 
-void testIt(void (*sorting)(int*, int), int arrayType) {
+void testIt (int (*sorting)(int*, int), int arrayType) {
     const int testCount = 103;
 
     out << "Length" << "\t" << "Average" << "\t" << "Min" << "\t" << "Max" << endl;
@@ -56,7 +55,7 @@ void testIt(void (*sorting)(int*, int), int arrayType) {
             descendingSort(originalArray, length);
         }
 
-        for (int i = 0; i < testCount; ++i) {
+        for (int i = 2; i < testCount; ++i) {
             copyArray(originalArray, testArray, length);
             long long lastTime = timeCount(sorting, testArray, length);
 
@@ -70,17 +69,21 @@ void testIt(void (*sorting)(int*, int), int arrayType) {
         }
         delete[] originalArray;
         delete[] testArray;
-    }
+        out << length << "\t" << (totalTime / testCount - 3) << "\t" << minTime << "\t" << maxTime << endl;
 
+    }
 }
-    long long timeCount(void (*sorting)(int*, int), int *array, int length) {
+    long long timeCount(int (*sorting)(int*, int), int *array, int length) {
         auto start_time = std::chrono::high_resolution_clock::now();
         sorting(array, length);
         auto end_time = std::chrono::high_resolution_clock::now();
         return std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time).count();
     }
-    void test(string sortingName, void (*sorting)(int[], int)) {
-        out << "/========================= " << sortingName << " =========================/" << endl << endl;
-        cout << "/===== " << sortingName << " =====/" << endl << endl;
-
+    void test(string sortingName, int (*sorting)(int[], int)) {
+        out << "***************** " << sortingName << " ***************** " << endl << endl;
+        for (int i = 1; i < 5; ++i)
+        {
+            testIt(sorting, i);
+            out << endl;
+        }
     }

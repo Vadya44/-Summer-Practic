@@ -1,4 +1,4 @@
-void binaryInsertionSort(int *array, int n)
+int binaryInsertionSort(int *array, int n)
 {
     for (int i = 1; i < n; i++) {
         int leftBound = 0;

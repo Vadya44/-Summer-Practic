@@ -1,4 +1,4 @@
-void bubbleSortArrayIverson2(int *arr, int end)
+int bubbleSortArrayIverson2(int *arr, int end)
 {
     int bound = end - 1;
     int t = 0;

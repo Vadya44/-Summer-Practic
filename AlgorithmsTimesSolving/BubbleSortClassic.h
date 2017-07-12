@@ -1,1 +1,1 @@
-void bubbleSortArrayClassic(int *arr, int begin, int end);
+int bubbleSortArrayClassic(int *arr, int begin, int end);

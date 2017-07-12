@@ -1,1 +1,1 @@
-void bubbleSortArrayIverson1(int *arr, int begin, int end);
+int bubbleSortArrayIverson1(int *arr, int begin, int end);

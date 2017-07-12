@@ -1,4 +1,4 @@
-void bubbleSortArrayIverson1(int *arr, int end)
+int bubbleSortArrayIverson1(int *arr, int end)
 {
     bool flag = false;
     for (int i = 0; i < end - 1 && !flag; ++i)
