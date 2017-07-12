@@ -40,7 +40,7 @@ void testIt (void (*sorting)(int*, int), int arrayType) {
     const int testCount = 103;
 
     out << "Length" << "\t" << "Average" << "\t\t" << "Min" << "\t\t" << "Max" << endl;
-    CSVout << "Length" << ";" << "Average" << ";" << "Min" << ";" << "Max" << endl;
+    CSVout << "Length" << ";" << "Average" << endl;
 
     for (int length = 1000; length <= 9000; length += 1000) {
         cout << "Длина массива: " << "\t\t" << length << endl;
@@ -82,7 +82,7 @@ void testIt (void (*sorting)(int*, int), int arrayType) {
         delete[] originalArray;
         delete[] testArray;
         out << length << "\t\t" << (totalTime / (testCount - 3)) << "\t\t" << minTime << "\t\t" << maxTime << endl;
-        CSVout << length << ";" << (totalTime / (testCount - 3)) << ";" << minTime << ";" << maxTime << endl;
+        CSVout << length << ";" << (totalTime / (testCount - 3)) << endl;
 
     }
 }
