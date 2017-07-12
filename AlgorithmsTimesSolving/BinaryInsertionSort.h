@@ -1,1 +1,1 @@
-int binaryInsertionSort(int *array, int n);
+void binaryInsertionSort(int *array, int n);

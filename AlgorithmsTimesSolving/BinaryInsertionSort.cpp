@@ -1,5 +1,7 @@
-int binaryInsertionSort(int *array, int n)
+void binaryInsertionSort(int *array, int n)
 {
+    int countOfOutterCycles = 0;
+    int countOfSwaps = 0;
     for (int i = 1; i < n; i++) {
         int leftBound = 0;
         int rightBound = i;
@@ -32,7 +34,10 @@ int binaryInsertionSort(int *array, int n)
         for (int j = i; j > leftBound; j--)
         {
             array[j] = array[j - 1];
+            countOfSwaps++;
         }
         array[leftBound] = temp;
+        countOfOutterCycles++;
+        countOfSwaps++;
     }
 }

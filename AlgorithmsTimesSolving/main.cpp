@@ -16,9 +16,9 @@
 
 
 using namespace std;
-long long timeCount(int (*sorting)(int*, int), int *array, int length);
-void testIt(int (*sorting)(int*, int), int arrayType);
-void test(string sortingName, int (*sorting)(int*, int));
+long long timeCount(void (*sorting)(int*, int), int *array, int length);
+void testIt(void (*sorting)(int*, int), int arrayType);
+void test(string sortingName, void (*sorting)(int*, int));
 ofstream out("/Users/Vadya/Desktop/AlgorithmsTimesSolving/results.txt");
 
 
@@ -28,10 +28,10 @@ int main() {
 }
 
 
-void testIt (int (*sorting)(int*, int), int arrayType) {
+void testIt (void (*sorting)(int*, int), int arrayType) {
     const int testCount = 103;
 
-    out << "Length" << "\t" << "Average" << "\t" << "Min" << "\t" << "Max" << endl;
+    out << "Length" << "\t" << "Average" << "\t\t" << "Min" << "\t\t" << "Max" << endl;
 
     for (int length = 1000; length <= 9000; length += 1000) {
         cout << "Длина массива: " << "\t\t" << length << endl;
@@ -45,12 +45,13 @@ void testIt (int (*sorting)(int*, int), int arrayType) {
 
         if (arrayType == 1)
             generateRandomArray(originalArray, length, 0, 7);
-        else if (arrayType == 2)
-            bubbleSortArrayClassic(originalArray, 0, INT_MAX);
-        else if (arrayType == 3) {
-            bubbleSortArrayClassic(originalArray, 0, length);
+        if (arrayType == 2)
+            bubbleSortArrayClassic(originalArray, INT_MAX);
+        if (arrayType == 3) {
+            bubbleSortArrayClassic(originalArray, length);
             reSort(originalArray, length);
-        } else if (arrayType == 4) {
+        }
+        if (arrayType == 4) {
             generateRandomArray(originalArray, length, 0, 8000);
             descendingSort(originalArray, length);
         }
@@ -69,21 +70,24 @@ void testIt (int (*sorting)(int*, int), int arrayType) {
         }
         delete[] originalArray;
         delete[] testArray;
-        out << length << "\t" << (totalTime / testCount - 3) << "\t" << minTime << "\t" << maxTime << endl;
+        out << length << "\t\t" << (totalTime / (testCount - 3)) << "\t\t" << minTime << "\t\t" << maxTime << endl;
 
     }
 }
-    long long timeCount(int (*sorting)(int*, int), int *array, int length) {
+    long long timeCount(void (*sorting)(int*, int), int *array, int length) {
         auto start_time = std::chrono::high_resolution_clock::now();
         sorting(array, length);
         auto end_time = std::chrono::high_resolution_clock::now();
-        return std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time).count();
+        return std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
     }
-    void test(string sortingName, int (*sorting)(int[], int)) {
+    void test(string sortingName, void (*sorting)(int*, int)) {
         out << "***************** " << sortingName << " ***************** " << endl << endl;
-        for (int i = 1; i < 5; ++i)
-        {
-            testIt(sorting, i);
-            out << endl;
-        }
+        testIt(sorting, 1);
+        out << endl;
+        testIt(sorting, 2);
+        out << endl;
+        testIt(sorting, 3);
+        out << endl;
+        testIt(sorting, 4);
+        out << endl;
     }

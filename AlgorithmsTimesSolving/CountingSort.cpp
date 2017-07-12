@@ -1,4 +1,4 @@
-#include <iostream>;
+#include <iostream>
 /*
  * Сортировка подсчетом
  */
@@ -58,3 +58,4 @@ int getMax(int *array, int n) {
     }
 
     return max;
+}

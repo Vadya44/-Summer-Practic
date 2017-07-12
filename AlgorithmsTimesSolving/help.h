@@ -1,5 +1,5 @@
-void printArray(int array[], int length);
-void copyArray(int src[], int trgt[], int length);
-void generateRandomArray(int array[], int length, int min, int max);
-void descendingSort(int array[], int length);
-void reSort(int *array, int length);
+int printArray(int array[], int length);
+int copyArray(int src[], int trgt[], int length);
+int generateRandomArray(int array[], int length, int min, int max);
+int descendingSort(int array[], int length);
+int reSort(int *array, int length);

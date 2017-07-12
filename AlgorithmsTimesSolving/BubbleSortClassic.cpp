@@ -1,4 +1,4 @@
-int bubbleSortArrayClassic(int *arr, int end)
+void bubbleSortArrayClassic(int *arr, int end)
 {
     for (int i = 0; i < end - 1; ++i)
     {
