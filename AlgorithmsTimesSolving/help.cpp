@@ -2,26 +2,29 @@
 #include <stdlib.h>
 
 using namespace std;
-
-int printArray(int *array, int length) {
+// printing array
+int printArray(int *array, int length)
+{
     for (int i = 0; i < length; ++i)
         cout << array[i] << " ";
     cout << endl;
     return 0;
 }
-
-int copyArray(int *mainArray, int copy[], int length) {
+// copy array
+int copyArray(int *mainArray, int copy[], int length)
+{
     for (int i = 0; i < length; ++i)
         copy[i] = mainArray[i];
     return 0;
 }
-
-int generateRandomArray(int *array, int length, int min, int max) {
+// array's generator
+int generateRandomArray(int *array, int length, int min, int max)
+{
     for (int i = 0; i < length; ++i)
         array[i] = min + (rand() % (max - min + 1));
     return 0;
 }
-
+// from sorted -> semi-sorted
 int reSort(int *array, int length)
 {
     swap(array[3], array[23]);
@@ -31,8 +34,9 @@ int reSort(int *array, int length)
     swap(array[31], array[123]);
     return 0;
 }
-
-int descendingSort(int *array, int length) {
+// here need some comments?????
+int descendingSort(int *array, int length)
+{
     for (int i = length - 1; i > 0; --i)
         for (int j = 0; j < i; ++j)
             if (array[j] < array[j + 1]) {

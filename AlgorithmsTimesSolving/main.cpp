@@ -14,12 +14,14 @@
 #include "BinaryInsertionSort.h"
 #include "RadixSort.h"
 
-
+// prototipes
 using namespace std;
 long long timeCount(void (*sorting)(int*, int), int *array, int length);
 void testIt(void (*sorting)(int*, int), int arrayType);
 void test(string sortingName, void (*sorting)(int*, int));
+// to txt
 ofstream out("/Users/Vadya/Desktop/AlgorithmsTimesSolving/results.txt");
+// to csv
 ofstream CSVout("/Users/Vadya/Desktop/AlgorithmsTimesSolving/results.csv");
 
 
@@ -33,10 +35,12 @@ int main() {
     test("Binary insertion sort", binaryInsertionSort);
     test("Insertion sort", insertionSort);
     test("Radix sort", radixSort);
+    return 0;
 }
 
-
-void testIt (void (*sorting)(int*, int), int arrayType) {
+// Function for solve time of someone type of array with all sizes
+void testIt (void (*sorting)(int*, int), int arrayType)
+{
     const int testCount = 103;
 
     out << "Length" << "\t" << "Average" << "\t\t" << "Min" << "\t\t" << "Max" << endl;
@@ -51,21 +55,26 @@ void testIt (void (*sorting)(int*, int), int arrayType) {
 
         int *originalArray = new int[length];
         int *testArray = new int[length];
-
+        // for array with numbers 0 - 7
         if (arrayType == 1)
             generateRandomArray(originalArray, length, 0, 7);
+        // for array with number 0 - INT_MAX
         if (arrayType == 2)
             generateRandomArray(originalArray, length, 0, INT_MAX);
-        if (arrayType == 3) {
+        // for semi-sorted array
+        if (arrayType == 3)
+        {
             generateRandomArray(originalArray, length, 0, 100);
             bubbleSortArrayClassic(originalArray, length);
             reSort(originalArray, length);
         }
-        if (arrayType == 4) {
+        // for descending sorted array
+        if (arrayType == 4)
+        {
             generateRandomArray(originalArray, length, 0, 8000);
             descendingSort(originalArray, length);
         }
-
+        // solving average time in nanoseconds
         for (int i = 0; i < testCount; ++i) {
             copyArray(originalArray, testArray, length);
             long long lastTime = timeCount(sorting, testArray, length);
@@ -79,6 +88,7 @@ void testIt (void (*sorting)(int*, int), int arrayType) {
                 totalTime += lastTime;
             }
         }
+        // data cleaning
         delete[] originalArray;
         delete[] testArray;
         out << length << "\t\t" << (totalTime / (testCount - 3)) << "\t\t" << minTime << "\t\t" << maxTime << endl;
@@ -86,17 +96,22 @@ void testIt (void (*sorting)(int*, int), int arrayType) {
 
     }
 }
-    long long timeCount(void (*sorting)(int*, int), int *array, int length) {
+    // solving time in nanoseconds
+    long long timeCount(void (*sorting)(int*, int), int *array, int length)
+    {
         auto start_time = std::chrono::high_resolution_clock::now();
         sorting(array, length);
         auto end_time = std::chrono::high_resolution_clock::now();
         return std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time).count();
     }
-    void test(string sortingName, void (*sorting)(int*, int)) {
+    // starting test with all tests for these sorting func
+    void test(string sortingName, void (*sorting)(int*, int))
+    {
         out << "************ " << sortingName << " ************ " << endl << endl;
         CSVout << sortingName << endl << endl;
         for (int i = 1; i < 5; ++i)
         {
+            // skip 2 type for countingSort
             if (sorting == countingSort &&  i == 2 ) continue;
             CSVout << endl << "type is " << i << endl;
             out << "Now is array with ";
